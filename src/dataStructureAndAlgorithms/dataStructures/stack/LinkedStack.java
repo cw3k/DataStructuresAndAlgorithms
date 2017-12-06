@@ -85,7 +85,5 @@ public class LinkedStack<T> implements StackADT<T> {
 			linkedString.setCharAt(linkedString.length() - 2, ' '); // remove the trailing comma
 			return linkedString.toString();
 		}
-
 	}
-
 }

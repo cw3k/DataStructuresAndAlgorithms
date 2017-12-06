@@ -19,8 +19,14 @@ public class LinkedStackTest {
 		test.push(80);
 		test.push(70);
 		test.push(10);
+		test.push(70);
+		test.push(10);
 		System.out.println(test.toString());
 		
+		System.out.println(test.pop());
+		System.out.println(test.toString());
+		System.out.println(test.pop());
+		System.out.println(test.toString());
 		System.out.println(test.pop());
 		System.out.println(test.toString());
 		System.out.println(test.pop());
