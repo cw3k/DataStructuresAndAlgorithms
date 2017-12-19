@@ -58,16 +58,6 @@ public class LinkedStack<T> implements StackADT<T> {
 		return count;
 	}
 	
-/*	public java.util.Iterator<T> iterator () {
-		// TODO: build linked iterator and array iterator classes
-		return new java.util.Iterator<T> () {
-			int index = 0;
-			public boolean hasNext() { return count > 0; }
-			@ Override
-			public T next() {return array[index++];}
-		};
-	}*/
-	
 	@Override
 	public String toString() {
 		if(isEmpty()) {

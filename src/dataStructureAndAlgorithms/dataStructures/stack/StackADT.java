@@ -1,5 +1,7 @@
 package dataStructureAndAlgorithms.dataStructures.stack;
 
+import java.util.EmptyStackException;
+
 /**
  * @author codeWarrior
  * StackADT
@@ -16,7 +18,7 @@ public interface StackADT<T> {
 	 * Removes and returns the top element from the this stack
 	 * @return T element removed from top of stack 
 	 */
-	public T pop();
+	public T pop() throws EmptyStackException;
 	
 	/**
 	 * Returns without removing the top element of this stack
