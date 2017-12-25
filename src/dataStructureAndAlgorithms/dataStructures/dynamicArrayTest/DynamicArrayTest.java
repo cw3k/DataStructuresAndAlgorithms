@@ -40,7 +40,9 @@ public class DynamicArrayTest {
 		getSizeOutput = test.getSize();
 		assertEquals(7, getSizeOutput);
 		
+		System.out.println(test.toString());
 		test.insert(36, 5);
+		System.out.println(test.toString());
 		getSizeOutput = test.getSize();
 		assertEquals(8, getSizeOutput);
 		

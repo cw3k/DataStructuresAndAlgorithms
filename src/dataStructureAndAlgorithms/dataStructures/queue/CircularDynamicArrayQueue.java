@@ -22,16 +22,43 @@ public class CircularDynamicArrayQueue<T> implements QueueADT<T> {
 	
 	@Override
 	public void enqueue(T element) {
-		if (queueArray.getSize() == count) {
-		} else {
-			
-		}
+		System.out.println("Before Enque:");
 		System.out.println("Size of Array: " + queueArray.getSize());
 		System.out.println("Size of Queue: " + count);
+		System.out.println("Head Pointer: " + headPoint);
 		System.out.println("Tail Pointer: " + tailPoint);
-		queueArray.insert(element, headPoint);
-		tailPoint++;
+		System.out.println("Head: " + first());
+		System.out.println("Tail: " + last());
+		System.out.println("IsEmpty?: " + isEmpty());
+		//System.out.println("Condition: " + ((headPoint == 0) && (!isEmpty())));
+		if(isEmpty()) {
+			headPoint = tailPoint = 0;
+			queueArray.insert(element, tailPoint);
+		} else if(tailPoint == count) {
+			tailPoint = (headPoint % count -1);
+			queueArray.setValue(tailPoint, element);
+		} else {
+			if(count < queueArray.getSize()) {
+				queueArray.setValue(tailPoint + 1, element);
+				tailPoint++;
+			} else {
+				queueArray.insert(element, tailPoint + 1);
+				tailPoint++;
+			}
+		}
+		
+		// (headPoint == 0 && !isEmpty()) || (headPoint < tailPoint && tailPoint <= queueArray.getSize())
 		count++;
+		System.out.println("\nAfter Enque:");
+		System.out.println("Size of Array: " + queueArray.getSize());
+		System.out.println("Size of Queue: " + count);
+		System.out.println("Head Pointer: " + headPoint);
+		System.out.println("Tail Pointer: " + tailPoint);
+		System.out.println("Head: " + first());
+		System.out.println("Tail: " + last());
+		System.out.println("IsEmpty?: " + isEmpty());
+		//System.out.println("Condition: " + ((headPoint == 0) && (!isEmpty())));
+		
 	}
 
 	@Override
@@ -41,7 +68,11 @@ public class CircularDynamicArrayQueue<T> implements QueueADT<T> {
 		} else {
 			T returnElement = queueArray.access(headPoint);
 			queueArray.setValue(headPoint, null);
-			headPoint++;
+			if((headPoint != 0) && ((headPoint + 1)% queueArray.getSize()) == 0) {
+				headPoint = 0;
+			} else {
+				headPoint++;
+			}
 			count--;
 			return returnElement;
 		}
@@ -53,6 +84,15 @@ public class CircularDynamicArrayQueue<T> implements QueueADT<T> {
 			return null;
 		} else {
 			return queueArray.access(headPoint);
+		}
+	}
+
+	// Testing purposes
+	public T last() {
+		if (isEmpty()) {
+			return null;
+		} else {
+			return queueArray.access(tailPoint);
 		}
 	}
 

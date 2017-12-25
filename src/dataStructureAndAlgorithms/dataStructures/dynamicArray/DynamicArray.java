@@ -36,7 +36,7 @@ public class DynamicArray<T> implements DynamicArrayADT<T> {
 
 	@Override
 	public void insert(T element, int index) {
-		if(index >= len) {
+		if(index > len) {
 			throw new IndexOutOfBoundsException();
 		}
 		
