@@ -4,24 +4,24 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import dataStructureAndAlgorithms.dataStructures.linearNode.LinearNode;
+import dataStructureAndAlgorithms.dataStructures.nodes.SinglyLinearNode;
 
 
 public class LinearNodeTest {
 	@Test //(expected = IndexOutOfBoundsException.class)
 	public void test() {
-		LinearNode<Integer> test = new LinearNode<>();
+		SinglyLinearNode<Integer> test = new SinglyLinearNode<>();
 		test.setElement(5);
 		int testElement = test.getElement();
 		assertEquals(5, testElement);
 		System.out.println(test.getElement());
 		
-		test.setNext(new LinearNode<>(6));
+		test.setNext(new SinglyLinearNode<>(6));
 		int nextElement = test.getNext().getElement();
 		assertEquals(6, nextElement);
 		System.out.println(test.getNext().getElement());
 		
-		LinearNode<Integer> nextNextElement = test.getNext().getNext();
+		SinglyLinearNode<Integer> nextNextElement = test.getNext().getNext();
 		assertEquals(null, nextNextElement);
 		System.out.println(test.getNext().getNext());
 		

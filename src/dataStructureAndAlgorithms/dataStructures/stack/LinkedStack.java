@@ -3,12 +3,12 @@ package dataStructureAndAlgorithms.dataStructures.stack;
 import java.util.EmptyStackException;
 import java.util.Iterator;
 
-import dataStructureAndAlgorithms.dataStructures.linearNode.LinearNode;
-import dataStructureAndAlgorithms.dataStructures.linearNode.LinkedIterator;
+import dataStructureAndAlgorithms.dataStructures.nodes.SinglyLinearNode;
+import dataStructureAndAlgorithms.dataStructures.nodes.LinkedIterator;
 
 public class LinkedStack<T> implements StackADT<T> {
 	
-	private LinearNode<T> top;
+	private SinglyLinearNode<T> top;
 	private int count;
 	
 	public LinkedStack() {
@@ -16,14 +16,14 @@ public class LinkedStack<T> implements StackADT<T> {
 		count = 0;
 	}
 	
-	public LinkedStack(LinearNode<T> newNode) {
+	public LinkedStack(SinglyLinearNode<T> newNode) {
 		top = newNode;
 		count++;
 	}
 	
 	@Override
 	public void push(T element) {
-		LinearNode<T> nodeToAdd = new LinearNode<>(element);
+		SinglyLinearNode<T> nodeToAdd = new SinglyLinearNode<>(element);
 		
 		nodeToAdd.setNext(top);
 		top = nodeToAdd;
@@ -36,7 +36,7 @@ public class LinkedStack<T> implements StackADT<T> {
 		if(this.isEmpty()) {
 			throw new EmptyStackException();
 		} else {
-			LinearNode<T> returnNode = top;
+			SinglyLinearNode<T> returnNode = top;
 			top = top.getNext();
 			count--;
 			return returnNode.getElement();

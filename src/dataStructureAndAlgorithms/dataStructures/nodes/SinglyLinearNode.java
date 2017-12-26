@@ -1,4 +1,4 @@
-package dataStructureAndAlgorithms.dataStructures.linearNode;
+package dataStructureAndAlgorithms.dataStructures.nodes;
 
 /**
  * @author codeWarrior
@@ -6,36 +6,34 @@ package dataStructureAndAlgorithms.dataStructures.linearNode;
  * @param <T> generic type
  */
 
-public class LinearNode<T> {
+public class SinglyLinearNode<T> extends Node<T> {
 	
 	//Member variables
-	private LinearNode<T> next;
-
-	private T element;
+	private SinglyLinearNode<T> next;
 	
 	
 	/**
 	 * Constructor to create an empty node 
 	 */
-	public LinearNode() {
+	public SinglyLinearNode() {
 		next = null;
-		element = null;
+		super.setElement(null);
 	}
 	
 	/**
 	 * Constructor to create node with given element
 	 * @param element element to be stored
 	 */
-	public LinearNode(T element) {
+	public SinglyLinearNode(T element) {
 		next = null;
-		this.element = element;
+		super.setElement(element);
 	}
 	
 	/**
 	 * Returns the node that follows this one
 	 * @return reference to next node
 	 */
-	public LinearNode<T> getNext() {
+	public SinglyLinearNode<T> getNext() {
 		return next;
 	}
 	
@@ -43,7 +41,7 @@ public class LinearNode<T> {
 	 * Returns the node that follows this one
 	 * @return reference to next node
 	 */
-	public void setNext(LinearNode<T> nextNode) {
+	public void setNext(SinglyLinearNode<T> nextNode) {
 		next = nextNode;
 	}
 	
@@ -52,7 +50,7 @@ public class LinearNode<T> {
 	 * @return T element stored at this node
 	 */
 	public T getElement() {
-		return element;
+		return super.getElement();
 	}
 	
 	/**
@@ -60,6 +58,6 @@ public class LinearNode<T> {
 	 * @param element to be stored at this node
 	 */
 	public void setElement(T element) {
-		this.element = element;
+		super.setElement(element);
 	}
 }

@@ -5,7 +5,6 @@ import java.util.EmptyStackException;
 import org.junit.Test;
 
 import dataStructureAndAlgorithms.dataStructures.queue.DynamicArrayQueue;
-import dataStructureAndAlgorithms.dataStructures.queue.LinkedQueue;
 
 public class DynamicArrayQueueTest {
 	

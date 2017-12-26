@@ -3,14 +3,12 @@ package dataStructureAndAlgorithms.dataStructures.queue;
 import java.util.EmptyStackException;
 import java.util.Iterator;
 
-//TODO fix empty stack collection or import from book
-//import dataStructureAndAlgorithms.dataStructures.customs.EmptyCollectionException;
-import dataStructureAndAlgorithms.dataStructures.linearNode.LinearNode;
-import dataStructureAndAlgorithms.dataStructures.linearNode.LinkedIterator;
+import dataStructureAndAlgorithms.dataStructures.nodes.SinglyLinearNode;
+import dataStructureAndAlgorithms.dataStructures.nodes.LinkedIterator;
 
 public class LinkedQueue<T> implements QueueADT<T> {
 
-	private LinearNode<T> head, tail;
+	private SinglyLinearNode<T> head, tail;
 	private int count;
 	
 	public LinkedQueue() {
@@ -19,7 +17,7 @@ public class LinkedQueue<T> implements QueueADT<T> {
 		count = 0;
 	}
 	
-	public LinkedQueue(LinearNode<T> startNode) {
+	public LinkedQueue(SinglyLinearNode<T> startNode) {
 		head = startNode;
 		tail = null;
 		count = 1;
@@ -27,7 +25,7 @@ public class LinkedQueue<T> implements QueueADT<T> {
 	
 	@Override
 	public void enqueue(T element) {
-		LinearNode<T> node = new LinearNode<>(element);
+		SinglyLinearNode<T> node = new SinglyLinearNode<>(element);
 		if(isEmpty()) {
 			head = node;
 		} else {

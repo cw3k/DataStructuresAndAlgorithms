@@ -10,13 +10,13 @@ public class CircularDynamicArrayQueueTest {
 
 	public void enqueTestString(CircularDynamicArrayQueue<Integer> test, int enqueueValue) {
 		System.out.println("\nEnque: " + enqueueValue);
-		System.out.println("-------------------------");
+		System.out.println("--------------------------------------------------");
 		test.enqueue(enqueueValue);
 		System.out.println("Queue: " + test.toString());
 	}
 	
 	public void dequeTestString(CircularDynamicArrayQueue<Integer> test) {
-		System.out.println("\nDeque\n-------------------------");
+		System.out.println("\nDeque:\n--------------------------------------------------");
 		System.out.println("Return: " + test.first());
 		test.dequeue();
 		System.out.println("Queue: " + test.toString());
@@ -115,7 +115,7 @@ public class CircularDynamicArrayQueueTest {
 		enqueTestString(test, 70);
 		enqueTestString(test, 17);
 	
-dequeTestString(test);
+		dequeTestString(test);
 		
 		enqueTestString(test, 75);
 		
@@ -158,5 +158,48 @@ dequeTestString(test);
 		dequeTestString(test);
 		dequeTestString(test);
 		dequeTestString(test);
+		
+		/*test.enqueue(6);
+		test.enqueue(15);
+		test.enqueue(80);
+		test.enqueue(70);
+		test.enqueue(10);
+		test.enqueue(70);
+		test.enqueue(10);
+		System.out.println(test.toString());
+		
+		System.out.println(test.dequeue());
+		System.out.println(test.toString());
+		System.out.println(test.dequeue());
+		System.out.println(test.toString());
+		System.out.println(test.dequeue());
+		System.out.println(test.toString());
+		System.out.println(test.dequeue());
+		System.out.println(test.toString());
+		System.out.println(test.dequeue());
+		System.out.println(test.toString());
+		System.out.println(test.dequeue());
+		System.out.println(test.toString());
+		System.out.println(test.dequeue());
+		System.out.println(test.toString());
+		System.out.println(test.dequeue());
+		System.out.println(test.toString());*/
+		
+		/*Empty
+		6, 15, 80, 70, 10, 70, 10  
+		6
+		15, 80, 70, 10, 70, 10  
+		15
+		80, 70, 10, 70, 10  
+		80
+		70, 10, 70, 10  
+		70
+		10, 70, 10  
+		10
+		70, 10  
+		70
+		10  
+		10
+		Empty*/
 	}
 }

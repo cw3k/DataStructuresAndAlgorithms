@@ -22,15 +22,6 @@ public class CircularDynamicArrayQueue<T> implements QueueADT<T> {
 	
 	@Override
 	public void enqueue(T element) {
-		System.out.println("Before Enque:");
-		System.out.println("Size of Array: " + queueArray.getSize());
-		System.out.println("Size of Queue: " + count);
-		System.out.println("Head Pointer: " + headPoint);
-		System.out.println("Tail Pointer: " + tailPoint);
-		System.out.println("Head: " + first());
-		System.out.println("Tail: " + last());
-		System.out.println("IsEmpty?: " + isEmpty());
-		//System.out.println("Condition: " + ((headPoint == 0) && (!isEmpty())));
 		if(isEmpty()) {
 			headPoint = tailPoint = 0;
 			queueArray.insert(element, tailPoint);
@@ -40,25 +31,12 @@ public class CircularDynamicArrayQueue<T> implements QueueADT<T> {
 		} else {
 			if(count < queueArray.getSize()) {
 				queueArray.setValue(tailPoint + 1, element);
-				tailPoint++;
 			} else {
 				queueArray.insert(element, tailPoint + 1);
-				tailPoint++;
 			}
+			tailPoint++;
 		}
-		
-		// (headPoint == 0 && !isEmpty()) || (headPoint < tailPoint && tailPoint <= queueArray.getSize())
-		count++;
-		System.out.println("\nAfter Enque:");
-		System.out.println("Size of Array: " + queueArray.getSize());
-		System.out.println("Size of Queue: " + count);
-		System.out.println("Head Pointer: " + headPoint);
-		System.out.println("Tail Pointer: " + tailPoint);
-		System.out.println("Head: " + first());
-		System.out.println("Tail: " + last());
-		System.out.println("IsEmpty?: " + isEmpty());
-		//System.out.println("Condition: " + ((headPoint == 0) && (!isEmpty())));
-		
+		count++;		
 	}
 
 	@Override
@@ -87,15 +65,6 @@ public class CircularDynamicArrayQueue<T> implements QueueADT<T> {
 		}
 	}
 
-	// Testing purposes
-	public T last() {
-		if (isEmpty()) {
-			return null;
-		} else {
-			return queueArray.access(tailPoint);
-		}
-	}
-
 	@Override
 	public boolean isEmpty() {
 		return count == 0;
@@ -106,6 +75,7 @@ public class CircularDynamicArrayQueue<T> implements QueueADT<T> {
 		return count;
 	}
 	
+	//TODO: Considering modifying toString to omit printing null values
 	@Override
 	public String toString() {
 		return queueArray.toString();
