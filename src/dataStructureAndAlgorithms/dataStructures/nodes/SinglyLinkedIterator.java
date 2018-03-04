@@ -3,7 +3,7 @@ package dataStructureAndAlgorithms.dataStructures.nodes;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class LinkedIterator<T> implements Iterator<T> {
+public class SinglyLinkedIterator<T> implements Iterator<T> {
 	private int count; // the number of elements in the collection
 	private SinglyLinearNode<T> current; // the current position
 
@@ -13,7 +13,7 @@ public class LinkedIterator<T> implements Iterator<T> {
 	 * @param collection the collection the iterator will move over
 	 * @param size the integer size of the collection
 	 */
-	public LinkedIterator(SinglyLinearNode<T> collection, int size) {
+	public SinglyLinkedIterator(SinglyLinearNode<T> collection, int size) {
 		current = collection;
 		count = size;
 	}

@@ -4,7 +4,7 @@ import java.util.EmptyStackException;
 import java.util.Iterator;
 
 import dataStructureAndAlgorithms.dataStructures.nodes.SinglyLinearNode;
-import dataStructureAndAlgorithms.dataStructures.nodes.LinkedIterator;
+import dataStructureAndAlgorithms.dataStructures.nodes.SinglyLinkedIterator;
 
 public class LinkedQueue<T> implements QueueADT<T> {
 
@@ -73,7 +73,7 @@ public class LinkedQueue<T> implements QueueADT<T> {
 		if(isEmpty()) {
 			return "Empty";
 		} else {
-			Iterator<T> linkedIter = new LinkedIterator<>(head, size());
+			Iterator<T> linkedIter = new SinglyLinkedIterator<>(head, size());
 			StringBuilder linkedString = new StringBuilder();
 			
 			while(linkedIter.hasNext()) linkedString.append(linkedIter.next() + ", ");

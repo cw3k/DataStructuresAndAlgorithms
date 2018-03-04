@@ -4,7 +4,7 @@ import java.util.EmptyStackException;
 import java.util.Iterator;
 
 import dataStructureAndAlgorithms.dataStructures.nodes.SinglyLinearNode;
-import dataStructureAndAlgorithms.dataStructures.nodes.LinkedIterator;
+import dataStructureAndAlgorithms.dataStructures.nodes.SinglyLinkedIterator;
 
 public class LinkedStack<T> implements StackADT<T> {
 	
@@ -64,7 +64,7 @@ public class LinkedStack<T> implements StackADT<T> {
 			return "Empty";
 		} else {
 			
-			Iterator<T> linkedIter = new LinkedIterator<>(top, count);
+			Iterator<T> linkedIter = new SinglyLinkedIterator<>(top, count);
 			StringBuilder linkedString = new StringBuilder();
 			
 			if(this.count == 0) {return("Empty");}

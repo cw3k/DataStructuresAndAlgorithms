@@ -10,13 +10,13 @@ public class CircularDynamicArrayQueueTest {
 
 	public void enqueTestString(CircularDynamicArrayQueue<Integer> test, int enqueueValue) {
 		System.out.println("\nEnque: " + enqueueValue);
-		System.out.println("--------------------------------------------------");
+		System.out.println("----------------------------------------------------------------------------------------------------");
 		test.enqueue(enqueueValue);
 		System.out.println("Queue: " + test.toString());
 	}
 	
 	public void dequeTestString(CircularDynamicArrayQueue<Integer> test) {
-		System.out.println("\nDeque:\n--------------------------------------------------");
+		System.out.println("\nDeque:\n----------------------------------------------------------------------------------------------------");
 		System.out.println("Return: " + test.first());
 		test.dequeue();
 		System.out.println("Queue: " + test.toString());
