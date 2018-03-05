@@ -1,31 +1,31 @@
 package dataStructureAndAlgorithms.dataStructures.stack;
 
+import dataStructureAndAlgorithms.dataStructures.nodes.LinearLinkedIterator;
+import dataStructureAndAlgorithms.dataStructures.nodes.LinearNode;
+
 import java.util.EmptyStackException;
 import java.util.Iterator;
 
-import dataStructureAndAlgorithms.dataStructures.nodes.SinglyLinearNode;
-import dataStructureAndAlgorithms.dataStructures.nodes.SinglyLinkedIterator;
-
 public class LinkedStack<T> implements StackADT<T> {
-	
-	private SinglyLinearNode<T> top;
-	private int count;
+
+    private LinearNode<T> top;
+    private int count;
 	
 	public LinkedStack() {
 		top = null;
 		count = 0;
 	}
-	
-	public LinkedStack(SinglyLinearNode<T> newNode) {
-		top = newNode;
+
+    public LinkedStack(LinearNode<T> newNode) {
+        top = newNode;
 		count++;
 	}
 	
 	@Override
 	public void push(T element) {
-		SinglyLinearNode<T> nodeToAdd = new SinglyLinearNode<>(element);
-		
-		nodeToAdd.setNext(top);
+        LinearNode<T> nodeToAdd = new LinearNode<>(element);
+
+        nodeToAdd.setNext(top);
 		top = nodeToAdd;
 		count++;
 		
@@ -36,8 +36,8 @@ public class LinkedStack<T> implements StackADT<T> {
 		if(this.isEmpty()) {
 			throw new EmptyStackException();
 		} else {
-			SinglyLinearNode<T> returnNode = top;
-			top = top.getNext();
+            LinearNode<T> returnNode = top;
+            top = top.getNext();
 			count--;
 			return returnNode.getElement();
 		}
@@ -63,9 +63,9 @@ public class LinkedStack<T> implements StackADT<T> {
 		if(isEmpty()) {
 			return "Empty";
 		} else {
-			
-			Iterator<T> linkedIter = new SinglyLinkedIterator<>(top, count);
-			StringBuilder linkedString = new StringBuilder();
+
+            Iterator<T> linkedIter = new LinearLinkedIterator<>(top, count);
+            StringBuilder linkedString = new StringBuilder();
 			
 			if(this.count == 0) {return("Empty");}
 			else {

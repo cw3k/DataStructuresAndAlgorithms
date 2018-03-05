@@ -1,7 +1,5 @@
 package dataStructureAndAlgorithms.dataStructures.dynamicArray;
 
-import java.util.Iterator;
-
 /**Implementation of dynamic array
  * @author codeWarrior
  */
@@ -10,18 +8,23 @@ import java.util.Iterator;
 @ SuppressWarnings("unchecked")
 
 public class DynamicArray<T> implements DynamicArrayADT<T> {
-	private T[] array; 
-	private int len; //length of the array to user 
 	private static int DEFAULT_CAPACITY = 16;
-	private int capacity; // actual capacity of the array
-	
-	public DynamicArray() { array = (T[]) new Object[DEFAULT_CAPACITY]; } // default constructor intializes array to size of DEFAULT_CAPACITY
-	
+    private T[] array;
+    private int len; //length of the array to user
+    private int capacity; // actual capacity of the array
+
+    // default constructor intializes array to size of DEFAULT_CAPACITY
+    public DynamicArray() {
+        array = (T[]) new Object[DEFAULT_CAPACITY];
+        this.len = 0;
+    }
+
 	// Constructor that intializes array with provided capacity
 	public DynamicArray(int capacity) {
 		if(capacity < 0 ) throw new IllegalArgumentException("Illegal capacity " + capacity);
 		this.capacity = capacity;
-		array = (T[]) new Object[capacity];
+        this.len = 0;
+        array = (T[]) new Object[capacity];
 	}
 	
 	@Override
@@ -85,9 +88,17 @@ public class DynamicArray<T> implements DynamicArrayADT<T> {
 	@Override
 	public void setValue(int index, T element) {
 		// TODO: add appropriate exceptions and bounds checks
-		this.array[index] = element;
-	}
-	
+        if (index > len) {
+            throw new IndexOutOfBoundsException();
+        }
+
+        this.array[index] = element;
+
+        if (index == len) {
+            len++;
+        }
+    }
+
 	@Override
 	public void clear() {
 		for(int i = 0; i < this.len; i ++) {
@@ -121,13 +132,14 @@ public class DynamicArray<T> implements DynamicArrayADT<T> {
 	
 	@Override
 	public String toString() {
-		Iterator<T> arrayIter = new ArrayIterator<>(array, len);
 		StringBuilder arrayString = new StringBuilder();
 		
 		if(this.len == 0) {return("Empty");}
 		else {
-			while(arrayIter.hasNext()) arrayString.append(arrayIter.next() + ", ");
-		}
+            for (int i = 0; i < len; i++) {
+                arrayString.append(array[i] + ", ");
+            }
+        }
 		
 		arrayString.setCharAt(arrayString.length() - 2, ' '); // remove the trailing comma
 		return arrayString.toString();

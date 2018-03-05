@@ -1,32 +1,32 @@
 package dataStructureAndAlgorithms.dataStructures.queue;
 
+import dataStructureAndAlgorithms.dataStructures.nodes.LinearLinkedIterator;
+import dataStructureAndAlgorithms.dataStructures.nodes.LinearNode;
+
 import java.util.EmptyStackException;
 import java.util.Iterator;
 
-import dataStructureAndAlgorithms.dataStructures.nodes.SinglyLinearNode;
-import dataStructureAndAlgorithms.dataStructures.nodes.SinglyLinkedIterator;
-
 public class LinkedQueue<T> implements QueueADT<T> {
 
-	private SinglyLinearNode<T> head, tail;
-	private int count;
+    private LinearNode<T> head, tail;
+    private int count;
 	
 	public LinkedQueue() {
 		head = null;
 		tail = null;
 		count = 0;
 	}
-	
-	public LinkedQueue(SinglyLinearNode<T> startNode) {
-		head = startNode;
+
+    public LinkedQueue(LinearNode<T> startNode) {
+        head = startNode;
 		tail = null;
 		count = 1;
 	}
 	
 	@Override
 	public void enqueue(T element) {
-		SinglyLinearNode<T> node = new SinglyLinearNode<>(element);
-		if(isEmpty()) {
+        LinearNode<T> node = new LinearNode<>(element);
+        if(isEmpty()) {
 			head = node;
 		} else {
 			tail.setNext(node);
@@ -73,8 +73,8 @@ public class LinkedQueue<T> implements QueueADT<T> {
 		if(isEmpty()) {
 			return "Empty";
 		} else {
-			Iterator<T> linkedIter = new SinglyLinkedIterator<>(head, size());
-			StringBuilder linkedString = new StringBuilder();
+            Iterator<T> linkedIter = new LinearLinkedIterator<>(head, size());
+            StringBuilder linkedString = new StringBuilder();
 			
 			while(linkedIter.hasNext()) linkedString.append(linkedIter.next() + ", ");
 			
