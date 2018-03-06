@@ -8,15 +8,14 @@ package dataStructureAndAlgorithms.dataStructures.nodes;
 
 public class LinearNode<T> extends Node<T> {
 
-    //Member variables
-    private LinearNode<T> next;
+	//Member variables
+	private LinearNode<T> next;
 
-
-    /**
+	/**
 	 * Constructor to create an empty node 
 	 */
-    public LinearNode() {
-        next = null;
+	public LinearNode() {
+		//next = null;
 		super.setElement(null);
 	}
 	
@@ -24,8 +23,8 @@ public class LinearNode<T> extends Node<T> {
 	 * Constructor to create node with given element
 	 * @param element element to be stored
 	 */
-    public LinearNode(T element) {
-        next = null;
+	public LinearNode(T element) {
+		//next = null;
 		super.setElement(element);
 	}
 	
@@ -33,16 +32,16 @@ public class LinearNode<T> extends Node<T> {
 	 * Returns the node that follows this one
 	 * @return reference to next node
 	 */
-    public LinearNode<T> getNext() {
-        return next;
+	public LinearNode<T> getNext() {
+		return next;
 	}
 	
 	/**
 	 * Returns the node that follows this one
 	 * @return reference to next node
 	 */
-    public void setNext(LinearNode<T> nextNode) {
-        next = nextNode;
+	public void setNext(LinearNode<T> nextNode) {
+		next = nextNode;
 	}
 	
 	/**

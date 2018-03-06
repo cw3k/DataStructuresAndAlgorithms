@@ -7,7 +7,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 
-public class orderdListTest {
+public class OrderdListTest {
 
     @Test(expected = EmptyCollectionException.class)
     public void test() {
